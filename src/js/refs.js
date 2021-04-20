@@ -1,4 +1,4 @@
 export const refs = {
-  inputCountry: document.querySelector('[id="country-input"]'),
-  descrCountry: document.querySelector('.js-description'),
+  inputImage: document.querySelector('[name="query"]'),
+  descrImage: document.querySelector('.js-images'),
 };
