@@ -13,12 +13,20 @@
 <body>
   <form class="search-form" id="search-form">
     <input class="input-query" type="text" name="query" autocomplete="off" placeholder="Search images..." />
+    <div><button type="submit" class="btn-search">Search</button></div>
+    <input class="js-checkbox" type="checkbox" /><span class="checkbox-span">infinity scroll</span>
   </form>
 
   <div class="js-images">
 
   </div>
-
+  <div class="div-btn-more">
+    <button type="button" class="btn-more" data-action="load-more">
+      <span class="" role="status" aria-hidden="true"></span>
+      <span class="label">Load more</span>
+    </button>
+  </div>
+  <div id="sentinel"></div>
 </body>
 
 </html>
