@@ -1,1 +1,0 @@
-import preloaderFactory from './preloader';

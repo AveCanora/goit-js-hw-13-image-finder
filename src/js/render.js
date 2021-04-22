@@ -3,6 +3,9 @@ import NewApiService from '../templates/NewApiService';
 import { refs } from './refs.js';
 import imagesPX from '../templates/images.hbs';
 import LoadMoreBtn from '../components/load-more-btn';
+// для работы модального окна
+import * as basicLightbox from 'basiclightbox';
+import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
 
 const availableScreenHeight = window.screen.availHeight;
 let checkScroll = false;
@@ -12,6 +15,20 @@ const loadMoreBtn = new LoadMoreBtn({
 });
 
 const newApiService = new NewApiService();
+
+function ulGalleryClick(evt) {
+  const isGallery__image = evt.target.classList.contains('js-images');
+  if (!isGallery__image) {
+    return;
+  }
+  const instance = basicLightbox.create(`
+    <img src = ${evt.target.dataset.source} width="800" height="600">
+`);
+  instance.show();
+  // refs.imglightbox.src = evt.target.dataset.source;
+}
+//Открытие модального окна по клику на элементе галереи
+refs.ulGallery.addEventListener('click', ulGalleryClick);
 
 refs.searchForm.addEventListener('submit', onSearch);
 loadMoreBtn.refs.button.addEventListener('click', onLoadMore);
